@@ -28,3 +28,9 @@
 	branch = main
 	update = checkout
 	ignore = dirty
+[submodule "deps/SDLNET"]
+	path = deps/SDLNET
+	url = https://github.com/libsdl-org/SDL_net.git
+	branch = main
+	update = checkout
+	ignore = dirty

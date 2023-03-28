@@ -8,7 +8,8 @@
                 "${workspaceFolder}/deps/SDL2/include",
                 "${workspaceFolder}/deps/SDLIMG/",
                 "${workspaceFolder}/deps/SDLTTF/",
-                "${workspaceFolder}/deps/SDLMIXER/include"
+                "${workspaceFolder}/deps/SDLMIXER/include",
+                "${workspaceFolder}/deps/SDLNET"
             ],
             "defines": [ ],
             "compilerPath": "/usr/bin/clang",

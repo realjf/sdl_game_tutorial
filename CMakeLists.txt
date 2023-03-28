@@ -32,15 +32,12 @@ include(cmake/common.cmake)
 include(cmake/comm_macros.cmake)
 
 include_directories(.)
-include_directories(src/engine)
+include_directories(src)
 include_directories(deps/SDL2/include)
-include_directories(deps/logc/include)
 include_directories(deps/SDLIMG)
 include_directories(deps/SDLTTF)
-include_directories(deps/tinyxml)
-include_directories(deps/base64)
-include_directories(deps/zlib)
 include_directories(deps/SDLMIXER/include)
+include_directories(deps/SDLNET)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-volatile -g -O2")
 
@@ -51,4 +48,4 @@ else()
 endif()
 
 target_link_directories(${PROJECT_NAME} PUBLIC ${LIBRARY_OUTPUT_PATH})
-target_link_libraries(${PROJECT_NAME} SDL2 SDL2_image-2.0 SDL2_ttf-2.0 tinyxml z SDL2_mixer-2.0)
+target_link_libraries(${PROJECT_NAME} SDL2 SDL2_image-2.0 SDL2_ttf-2.0 SDL2_mixer-2.0)
