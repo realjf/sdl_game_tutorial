@@ -6,12 +6,51 @@
 #include <SDL.h> /* macOS- and GNU/Linux-specific */
 #endif
 
+#include "singleton/singleton.h"
+#include "state/igame_state.h"
+#include "state/game_state_manager.h"
+#include <iostream>
+#include "datatypes/size.h"
+
+class TestClass : public IGameState {
+public:
+    int num = 0;
+
+    virtual void Update() override {
+        num++;
+    }
+
+    virtual void Draw() override {
+        std::cout << num << std::endl;
+    }
+
+    virtual void DeInitialize() override {}
+
+    virtual void Initialize() override {}
+
+private:
+    TestClass() {}
+    friend Singleton<TestClass>;
+};
+
+typedef Singleton<TestClass> TheTestClass;
+
 /* Sets constants */
 #define WIDTH 800
 #define HEIGHT 600
 #define DELAY 3000
 
 int main(int argc, char **argv) {
+    GameStateManager *gsm = TheGameStateManager::Pointer();
+
+    gsm->SetState(TheTestClass::Pointer());
+    gsm->Run();
+
+    Size test(10, 12);
+    SizeF test2(test);
+
+    SizeF test3 = test + test2;
+
     /* Initialises data */
     SDL_Window *window = NULL;
 
