@@ -16,6 +16,7 @@ public:
 protected:
     SDL_Texture *m_Texture = nullptr;
     Size m_TextureSize;
+    Vector2 m_CellsXY;
 };
 
 #endif /* _SDL_IMAGE_H_ */

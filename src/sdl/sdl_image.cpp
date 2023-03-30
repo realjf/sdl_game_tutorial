@@ -2,12 +2,20 @@
 #include "sdl_screen_handler.h"
 
 bool SDL_Image::Load(const std::string &File) {
-    m_Texture = IMG_LoadTexture(TheSDLScreenHandler::Pointer()->GetRenderer(), File.c_str());
-    if (!m_Texture) {
-
+    SDL_Surface *surface = IMG_Load(File.c_str());
+    if (surface == nullptr) {
+        std::cout << "Error loading image: " << SDL_GetError() << std::endl;
         return false;
     }
+    m_Texture = SDL_CreateTextureFromSurface(TheSDLScreenHandler::Pointer()->GetRenderer(), surface);
+    SDL_FreeSurface(surface);
+    if (m_Texture == nullptr) {
+        std::cout << "Couldn't load texture: " << SDL_GetError() << std::endl;
+        return false;
+    }
+
     SDL_QueryTexture(m_Texture, NULL, NULL, &m_TextureSize.Width, &m_TextureSize.Height);
+    std::cout << "load image successfully" << std::endl;
     return true;
 }
 

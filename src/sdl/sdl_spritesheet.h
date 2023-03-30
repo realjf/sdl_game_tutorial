@@ -7,15 +7,16 @@
 
 class SDL_SpriteSheet : public SDL_Image {
 public:
-    void SetCellSize(Size CellSize);
+    void SetCellSize(Size cellSize);
     int GetCellWidth();
     int GetCellHeight();
 
-    SDL_SpriteSheet() {}
+    SDL_Rect TranslateCell(const int cell);
+    bool Load(const std::string &file, const Size &cellSize);
+    void Draw(const int cell, const Vector2 &location);
 
-    Rectangle TranslateCell(const int Cell);
-    bool Load(const std::string &File);
-    void Draw(const int Cell, const Vector2 &Location);
+private:
+    Size m_CellSize;
 };
 
 #endif /* _SDL_SPRITESHEET_H_ */

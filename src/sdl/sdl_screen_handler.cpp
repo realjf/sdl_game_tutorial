@@ -13,6 +13,10 @@ bool SDL_ScreenHandler::Initialize(std::string windowName, Size windowSize) {
     }
 
     m_Renderer = SDL_CreateRenderer(m_Window, -1, SDL_RENDERER_ACCELERATED);
+    if (m_Renderer == nullptr) {
+        std::cout << "create SDL Renderer error: " << SDL_GetError() << std::endl;
+        return false;
+    }
 
     SDL_RenderClear(m_Renderer);
 
@@ -24,8 +28,8 @@ void SDL_ScreenHandler::SetBackBufferColor(SDL_Color color) {
 }
 
 void SDL_ScreenHandler::Flip() {
-    SDL_RenderClear(m_Renderer);
     SDL_RenderPresent(m_Renderer);
+    SDL_RenderClear(m_Renderer);
 }
 
 SDL_ScreenHandler::~SDL_ScreenHandler() {
