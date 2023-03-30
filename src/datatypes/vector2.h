@@ -67,7 +67,7 @@ public:
 
     template <class Scalar>
     Vector2T operator*(const Scalar scalar) {
-        Vector2T<T2> res = *this;
+        Vector2T<T> res = *this;
         res.X *= scalar;
         res.Y *= scalar;
         return res;
@@ -81,7 +81,7 @@ public:
 
     template <class Scalar>
     Vector2T operator/(const Scalar scalar) {
-        Vector2T<T2> res = *this;
+        Vector2T<T> res = *this;
         res.X /= scalar;
         res.Y /= scalar;
         return res;

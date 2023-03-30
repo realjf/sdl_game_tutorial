@@ -7,7 +7,7 @@ bool SDL_ScreenHandler::Initialize(std::string windowName, Size windowSize) {
     }
 
     m_Window = SDL_CreateWindow(windowName.c_str(), 10, 10, windowSize.Width, windowSize.Height, 0);
-    if (m_Window == NULL) {
+    if (m_Window == nullptr) {
         std::cout << "create SDL window error: " << SDL_GetError() << std::endl;
         return false;
     }

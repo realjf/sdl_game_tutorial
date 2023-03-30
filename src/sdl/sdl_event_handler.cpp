@@ -6,6 +6,9 @@ void SDL_EventHandler::PoolEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
+        case SDL_QUIT:
+            TheSDLGameStateManager::Pointer()->SetState(nullptr);
+            break;
         case SDL_WINDOWEVENT:
             TheSDLGameStateManager::Pointer()->HandleEvent(&event.window);
             break;
