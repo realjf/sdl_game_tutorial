@@ -18,11 +18,11 @@ public:
         return res;
     }
 
-    template <class T2>
-    SizeT operator=(const SizeT<T2> b) {
-        Width = (T)b.Width;
-        Height = (T)b.Height;
-    }
+    // template <class T2>
+    // SizeT operator=(const SizeT<T2> b) {
+    //     Width = (T)b.Width;
+    //     Height = (T)b.Height;
+    // }
 
     template <class T2>
     bool operator==(const SizeT<T2> b) {
@@ -64,7 +64,7 @@ public:
         Height -= (T)b.Height;
     }
 
-    bool IsZero() {
+    bool IsZero() const {
         return Width == 0 && Height == 0;
     }
 };
