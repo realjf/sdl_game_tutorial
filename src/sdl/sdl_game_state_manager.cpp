@@ -1,8 +1,10 @@
 #include "sdl_game_state_manager.h"
 #include "sdl_screen_handler.h"
 #include "sdl_event_handler.h"
+#include "sdl/sdl_timer.h"
 
 void SDL_GameStateManager::Update() {
+    SDL_Timer::UpdateTimer();
 
     TheSDLEventHandler::Pointer()->PoolEvents();
 
